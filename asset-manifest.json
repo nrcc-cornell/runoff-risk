@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/runoff-risk/static/css/main.bab0b925.chunk.css",
+    "main.js": "/runoff-risk/static/js/main.0776d658.chunk.js",
+    "main.js.map": "/runoff-risk/static/js/main.0776d658.chunk.js.map",
+    "runtime-main.js": "/runoff-risk/static/js/runtime-main.148c84cd.js",
+    "runtime-main.js.map": "/runoff-risk/static/js/runtime-main.148c84cd.js.map",
+    "static/css/2.70329d98.chunk.css": "/runoff-risk/static/css/2.70329d98.chunk.css",
+    "static/js/2.a1404169.chunk.js": "/runoff-risk/static/js/2.a1404169.chunk.js",
+    "static/js/2.a1404169.chunk.js.map": "/runoff-risk/static/js/2.a1404169.chunk.js.map",
+    "index.html": "/runoff-risk/index.html",
+    "static/css/2.70329d98.chunk.css.map": "/runoff-risk/static/css/2.70329d98.chunk.css.map",
+    "static/css/main.bab0b925.chunk.css.map": "/runoff-risk/static/css/main.bab0b925.chunk.css.map",
+    "static/js/2.a1404169.chunk.js.LICENSE.txt": "/runoff-risk/static/js/2.a1404169.chunk.js.LICENSE.txt",
+    "static/media/ny_daily_runoff_risk_20200308.bab0de40.png": "/runoff-risk/static/media/ny_daily_runoff_risk_20200308.bab0de40.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.148c84cd.js",
+    "static/css/2.70329d98.chunk.css",
+    "static/js/2.a1404169.chunk.js",
+    "static/css/main.bab0b925.chunk.css",
+    "static/js/main.0776d658.chunk.js"
+  ]
+}
