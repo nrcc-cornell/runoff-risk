@@ -85,8 +85,8 @@ class Header extends React.Component {
   //}
 
   getActiveTabIndex = () => {
-    console.log(this.props.history)
-    console.log(this.props.history.location.pathname)
+    //console.log(this.props.history)
+    //console.log(this.props.history.location.pathname)
     if (this.props.history.location.pathname==='/') {
       return 0
     } else if (this.props.history.location.pathname==='/forecast') {
@@ -126,7 +126,7 @@ class Header extends React.Component {
                         Nutrient Applicator Forecast For New York State
                 </Typography>
                 <Typography variant="h2" className={classes.subHeaderText}>
-                        Decision support for managing nutrient runoff risk
+                        Decision support tool for managing nutrient runoff risk
                 </Typography>
             </div>
             <div className={classes.titleShort} onClick={() => {this.props.history.push('/')}}>

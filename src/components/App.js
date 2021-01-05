@@ -43,10 +43,19 @@ const theme = createMuiTheme({
       }
     },
   },
+  typography: {
+    body2: {
+      fontSize: '0.8rem',
+      '@media (min-width:960px)': {
+        fontSize: '1.0rem',
+      },
+    },
+  }
 });
 
 const styles = theme => ({
-  root: {}
+  root: {},
+  toolbar: theme.mixins.toolbar
 });
 
 //var app;
@@ -64,15 +73,18 @@ class App extends Component {
         return (
           <Router basename={process.env.PUBLIC_URL}>
             <MuiThemeProvider theme={theme}>
-              <div className="App">
+              <div id="container" className="App">
                 <Header />
+                <br/><br/>
 
+                <div id="main-content">
                 <Switch>
                   <Route exact path="/" render={(props) => <ToolContents {...props} />} />
                   <Route exact path="/forecasts" render={(props) => <ToolContents {...props} />} />
                   <Route path="/about" component={AboutContents} />
                   <Route render={() => <Redirect to="/" />} />
                 </Switch>
+                </div>
 
                 <Footer />
               </div>

@@ -7,16 +7,10 @@ import App from './components/App';
 //Styles
 //import './styles/index.css';
 
-//Mobx
-import store from './stores';
-import { Provider } from 'mobx-react';
-
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+    <App />,
   document.getElementById('root')
 );
 

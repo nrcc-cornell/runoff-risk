@@ -1,0 +1,175 @@
+.map-legend {
+    border-radius: 10px;
+    /*border: 2px solid #4ca20b;*/
+    border: 2px solid #0000aa;
+    line-height: 24px;
+    color: #555;
+    background: #F5F5DC;
+    min-width: 160px;
+    text-align: left;
+}
+
+.map-legend-label {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    text-align: left;
+    margin: 0px 4px 0px 0px;
+}
+
+.map-legend-title {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 2px;
+}
+
+.color-box {
+  float: left;
+  width: 14px;
+  height: 10px;
+  margin: 5px;
+  border: 2px solid rgba(0, 0, 0, .5);
+}
+
+/********************************/
+/* Colors for Runoff Risk legend*/
+/********************************/
+.rr-color-1 {
+  background: #52be80;
+  opacity: 0.7;
+}
+
+.rr-color-2 {
+  background: #ffd700;
+  opacity: 0.7;
+}
+
+.rr-color-3 {
+  background: #ffaa1c;
+  opacity: 0.7;
+}
+
+.rr-color-4 {
+  background: #ff0000;
+  opacity: 0.7;
+}
+
+.rr-color-5 {
+  background: #5dade2;
+  opacity: 0.7;
+}
+
+.rr-color-6 {
+  background: #8e44ad;
+  opacity: 0.7;
+}
+
+/********************************/
+/* Colors for Temperature legend*/
+/********************************/
+.temp-color-1 {
+  background: #79B5FC;
+  opacity: 0.7;
+}
+
+.temp-color-2 {
+  background: #7CC483;
+  opacity: 0.7;
+}
+
+.temp-color-3 {
+  background: #EECE9B;
+  opacity: 0.7;
+}
+
+.temp-color-4 {
+  background: #F89369;
+  opacity: 0.7;
+}
+
+.temp-color-5 {
+  background: #DD5845;
+  opacity: 0.7;
+}
+
+.temp-color-6 {
+  background: #B32423;
+  opacity: 0.7;
+}
+
+/********************************/
+/* Colors for Precipitation legend*/
+/********************************/
+.precip-color-1 {
+  background: #FEFBB1;
+  opacity: 0.7;
+}
+
+.precip-color-2 {
+  background: #D0D091;
+  opacity: 0.7;
+}
+
+.precip-color-3 {
+  background: #78C6A6;
+  opacity: 0.7;
+}
+
+.precip-color-4 {
+  background: #409457;
+  opacity: 0.7;
+}
+
+.precip-color-5 {
+  background: #2A7FB0;
+  opacity: 0.7;
+}
+
+.precip-color-6 {
+  background: #81B0CF;
+  opacity: 0.7;
+}
+
+.precip-color-7 {
+  background: #BECEDB;
+  opacity: 0.7;
+}
+
+.precip-color-8 {
+  background: #FCB9B5;
+  opacity: 0.7;
+}
+
+.precip-color-9 {
+  background: #F672A5;
+  opacity: 0.7;
+}
+
+/********************************/
+/* Colors for Soil Saturation legend*/
+/********************************/
+.sat-color-1 {
+  background: #F8FDC7;
+  opacity: 0.7;
+}
+
+.sat-color-2 {
+  background: #9BE1B6;
+  opacity: 0.7;
+}
+
+.sat-color-3 {
+  background: #51BAC7;
+  opacity: 0.7;
+}
+
+.sat-color-4 {
+  background: #3D89BA;
+  opacity: 0.7;
+}
+
+.sat-color-5 {
+  background: #344792;
+  opacity: 0.7;
+}
+
