@@ -5,12 +5,16 @@ import PropTypes from 'prop-types';
 //import ls from 'local-storage';
 
 import React, {Component} from 'react';
-//import MapGL, {MapController, NavigationControl, Popup} from 'react-map-gl';
 import MapGL, {NavigationControl, Popup} from 'react-map-gl';
-import Geocoder from 'react-map-gl-geocoder'
-//import Button from '@material-ui/core/Button';
+import Geocoder from 'react-map-gl-geocoder';
+import mapboxgl from 'mapbox-gl';
 
 import MapLegend from './MapLegend';
+
+// fix based on https://github.com/mapbox/mapbox-gl-js/issues/10173
+// @ts-ignore
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 
 const TOKEN = 'pk.eyJ1IjoiYm5iMiIsImEiOiJjazJtYTgwajQwZnFiM29waGo4NHI1MWpnIn0.Xmb6eYeJArqqBQtKkWorUQ'
 
