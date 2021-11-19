@@ -12,7 +12,11 @@ const mapLegendStyle = {
 
 const getLabel = (v) => {
   let labels = {
-    'dailyRiskPercWinter': 'Runoff Risk',
+    'dailyRiskPerc': 'Runoff Risk (24-hour)',
+    'dailyRiskPerc72Hour': 'Runoff Risk (72-hour)',
+    'dailyRiskPercWinter': 'Runoff Risk (24-hour)',
+    'dailyRiskPercWinter72Hour': 'Runoff Risk (72-hour)',
+    'dailyRiskPercWinterTotal': 'Runoff Risk (10-day)',
     'dailyPrecip': 'Precipitation (in)',
     'dailyAvgSoilSat_2in': 'Soil Saturation (2" depth, %)',
     'dailyAvgSoilSat_6in': 'Soil Saturation (6" depth, %)',
@@ -29,7 +33,7 @@ const getLabel = (v) => {
 class MapLegend extends React.Component {
 
   render() {
-    if (this.props.variable==='dailyRiskPercWinter') {
+    if (this.props.variable.includes('Risk')) {
       return (
         <div className="map-legend" style={mapLegendStyle}>
           <div className="map-legend-title">{getLabel(this.props.variable)}</div>

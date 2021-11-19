@@ -5,16 +5,16 @@ import PropTypes from 'prop-types';
 
 let public_url = process.env.PUBLIC_URL
 
-const LoadForecastDates = ({dateFcstInit}) => {
-        return fetch(public_url + "/data/fcst_dates.json?"+dateFcstInit)
+const LoadLonLatGrid = ({dateFcstInit}) => {
+        return fetch(public_url + "/data/ll_jsons/ll_grid.json?"+dateFcstInit)
              .then(r => r.json())
              .then(data => {
                return (data) ? data : null;
              });
 }
 
-LoadForecastDates.propTypes = {
+LoadLonLatGrid.propTypes = {
   dateFcstInit: PropTypes.string.isRequired,
 };
 
-export default LoadForecastDates;
+export default LoadLonLatGrid;

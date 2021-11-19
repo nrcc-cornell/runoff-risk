@@ -20,7 +20,7 @@ const FrontText = (props) => {
           <Grid item container direction="column" justify="flex-start" xs={12} md={4} lg={4}>
             <Grid item>
               <Typography gutterBottom variant="body2">
-                The <b>New York State Nutrient Applicator Forecast</b> provides information about runoff risk for the next 10 days. This tool uses National Weather Service forecasts for precipitation, temperature, soil moisture, snow cover and landscape characteristics to drive these products.
+                The <b>New York State Nutrient Applicator Forecast</b> provides information about potential runoff risk for the next 10 days. This tool uses National Weather Service forecasts for precipitation, temperature, soil moisture, snow cover and landscape characteristics to drive these products.
               </Typography>
               <Hidden smDown><br/></Hidden>
               <hr />
@@ -38,7 +38,7 @@ const FrontText = (props) => {
               <hr />
               <Hidden smDown><br/></Hidden>
               <Typography gutterBottom variant="body2">
-                For details about these forecasts and more instructions on how to use this tool, please click on the <b>About</b> link at the top of the page.
+                For details about these forecasts and more instructions on how to use this tool, please click on the <b>How To</b> and <b>About</b> links at the top of the page.
               </Typography>
             </Grid>
           </Grid>

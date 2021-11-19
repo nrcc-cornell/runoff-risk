@@ -52,19 +52,56 @@
     transition: width 1s linear;
   }
 
-  #turf-dashboard-location {
+  #turf-dashboard-summary {
     width: 100%;
     text-align: center;
     vertical-align: middle;
     font-size: 24px;
+    font-weight: normal;
+    /* margin-top: 0.5em; */
+    /* margin-bottom: 0.5em; */
+    margin-top: 1.5em;
+    //margin-bottom: 1.5em;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  #turf-dashboard-summary .summary-text { font-weight: bold; padding-top: 12px; }
+  #turf-dashboard-summary .summary-risk-text { padding-left: 5px; font-weight: bold; color: #8e44ad; }
+  #turf-dashboard-summary .no-risk { padding-left: 5px; font-size: 36px; font-weight: bold; color: #52be80; }
+  #turf-dashboard-summary .low-risk { padding-left: 5px; font-size: 36px; font-weight: bold; color: #ffd700; }
+  #turf-dashboard-summary .moderate-risk { padding-left: 5px; font-size: 36px; font-weight: bold; color: #ffaa1c; }
+  #turf-dashboard-summary .high-risk { padding-left: 5px; font-size: 36px; font-weight: bold; color: #ff0000; }
+  #turf-dashboard-summary .no-risk-fzn { padding-left: 5px; font-size: 36px; font-weight: bold; color: #5dade2; }
+  #turf-dashboard-summary .high-risk-fzn { padding-left: 5px; font-size: 36px; font-weight: bold; color: #8e44ad; }
+  #turf-dashboard-summary .summary-fcst-time-note { padding-left: 5px; vertical-align: top; font-size: 14px; font-weight: normal; color: #666666; }
+
+ .highcharts-point.zone-1 { fill: #52be80; }
+  .highcharts-point.zone-2 { fill: #5dade2; }
+  .highcharts-point.zone-3 { fill: #ffd700; }
+  .highcharts-point.zone-4 { fill: #ffaa1c; }
+  .highcharts-point.zone-5 { fill: #ff0000; }
+  .highcharts-point.zone-6 { fill: #8e44ad; }
+
+  #turf-dashboard-location {
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20px;
     font-weight: normal;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     padding-top: 0;
     padding-bottom: 0;
   }
+  #turf-dashboard-location .location-title { font-size: 24px; font-weight: bold; padding-top: 12px; }
   #turf-dashboard-location .location-address { padding-top: 12px; }
   #turf-dashboard-location .location-coordinates { padding-left: 5px; color: #45930b; }
+  #turf-dashboard-location .location-note { padding-left: 5px; vertical-align: top; font-size: 14px; font-weight: normal; color: #666666; }
+
+  #turf-dashboard-location .location-assumptions-text { margin-top: 0.0em; margin-bottom: 0.0em; padding-left: 5px; vertical-align: top; font-size: 16px; font-weight: normal; color: #000000; }
+  #turf-dashboard-location .location-assumptions-items { margin-top: 0.0em; margin-bottom: 0.0em; padding-left: 5px; vertical-align: top; font-size: 18px; font-weight: bold; color: #000000; }
+  #turf-dashboard-location .location-assumptions-warning { margin-top: 0.0em; margin-bottom: 0.0em; padding-left: 5px; vertical-align: top; font-size: 16px; font-weight: bold; color: #ff0000; }
 
   .dashboard-change-location {
      background-color: #33ffff;
@@ -92,7 +129,7 @@
      padding-top: 5px;
      padding-bottom: 5px;
      /*font-size: 20px;*/
-     font-size: 18px;
+     font-size: 22px;
      font-weight: bold;
      text-align: center;
      vertical-align: middle;
@@ -111,6 +148,8 @@
   #turf-dashboard,
   #turf-dashboard-location,
   #turf-dashboard-footer { padding-right: 5px; }
+
+  .nre-note { font-size: 12px; color: #666666; vertical-align: top; }
   
   .turf-dashboard-table {
      width: 100%;

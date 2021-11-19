@@ -5,6 +5,7 @@ import moment from 'moment';
 class DashboardDates extends React.Component {
 
   render() {
+    let today_date = moment().format('MM-DD')
     let year = parseInt(this.props.pointData['dates'][0].slice(0,4),10)
     let month = parseInt(this.props.pointData['dates'][0].slice(4,6),10)
     let day = parseInt(this.props.pointData['dates'][0].slice(6,8),10)
@@ -24,9 +25,17 @@ class DashboardDates extends React.Component {
             let key_str = 'date' + idx.toString();
             let the_date = moment(first_valid).add(idx,'d').format('MM-DD');
             if (idx < fcast_idx) {
-              return <span key={key_str} className={'date obs'}>{the_date}</span>;
+              if (the_date===today_date) {
+                return <span key={key_str} className={'date obs'}>{'Today'}</span>;
+              } else {
+                return <span key={key_str} className={'date obs'}>{the_date}</span>;
+              }
             } else { 
-              return <span key={key_str} className={'date fcast'}>{the_date}</span>;
+              if (the_date===today_date) {
+                return <span key={key_str} className={'date fcast'}>{'Today'}</span>;
+              } else {
+                return <span key={key_str} className={'date fcast'}>{the_date}</span>;
+              }
             }
           }) }
         </td>

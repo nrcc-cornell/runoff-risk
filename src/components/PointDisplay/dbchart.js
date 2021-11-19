@@ -5,6 +5,8 @@ import HighchartsMore from 'highcharts/highcharts-more'
 import HighchartsReact from 'highcharts-react-official';
 import moment from 'moment';
 
+//import DashboardLegend from './dblegend.js';
+
 HighchartsMore(Highcharts)
 
 class ThreatColumnChart extends Component {
@@ -68,44 +70,68 @@ class ThreatColumnChart extends Component {
     return {
       chart: { borderColor: '#98AFC7', borderWidth: 2, alignTicks:false, height:225, renderTo:'#dashboard-chart-container' },
       legend: { enabled:false },
-      navigator:{ enabled:true, height:40, margin:5, handles:{ borderColor:'#0000ff' }, series: { type:'column' }, yAxis:{ min:0.5, max:4 } },
+      //navigator:{ enabled:true, height:40, margin:5, handles:{ borderColor:'#0000ff' }, series: { type:'column' }, yAxis:{ min:0.5, max:4 } },
+      navigator:{ enabled:false, height:40, margin:5, handles:{ borderColor:'#0000ff' }, series: { type:'column' }, yAxis:{ min:0.5, max:4 } },
       plotOptions: { series: { pointStart: start_date, pointInterval: 24*3600*1000, }, },
-      rangeSelector: { selected:0, buttonSpacing:6,
-        buttons: [
-          { type:'day', count:10, text:'10 days' },
-          { type:'day', count:30, text:'30 days' },
-          { type:'all', text:'Season' }
-        ],
-        buttonTheme: { height:20, width:54, fill:'#cccccc',
-          style: { color:'%0000dd' },
-          states: { select: { fill:'#0000dd', style:{ color:'#ffffff' } }, }
-        },
+      rangeSelector: { selected: 0, height: 0,
+        inputEnabled: false, buttonTheme: { visibility: 'hidden' }, labelStyle: { visibility: 'hidden' },
       },
-      scrollbar:{ height:2 },
+      //rangeSelector: { selected:0, buttonSpacing:6,
+      //  buttons: [
+      //    { type:'day', count:10, text:'10 days' },
+      //    { type:'day', count:30, text:'30 days' },
+      //    { type:'day', count:90, text:'90 days' },
+      //  ],
+      //  buttonTheme: { height:20, width:54, fill:'#cccccc',
+      //    style: { color:'%0000dd' },
+      //    states: { select: { fill:'#0000dd', style:{ color:'#ffffff' } }, }
+      //  },
+      //},
+      //scrollbar:{ height:2 },
+      scrollbar:{ enabled:false },
       series: [
         { colorByPoint: true,
           colors: dbchart.colors,
           data: model_data,
+          dataLabels: {
+            enabled:true,
+            inside:true,
+            formatter: function(){
+              if (this.y<=1.5) {return 'NRE'};
+              if (this.y===2) {return 'Low'};
+              if (this.y===3) {return 'Mod'};
+              if (this.y>=3.5) {return 'High'};
+            }
+          },
           name: dbchart.seriesName,
-          showInNavigator: true,
+          //showInNavigator: true,
           type: 'column',
           zoneAxis: 'y',
           zones: zones, 
         },
       ],
-      title: { text: 'Nutrient Runoff Risk', style: {fontWeight: 'bold'} },
+      title: { text: 'Nutrient Runoff Risk Forecasts* (Daily)', style: {fontWeight: 'bold'} },
+      //subtitle: {
+      //  enabled: true,
+      //  text: '*NRE : No Runoff Expected',
+      //},
+      subtitle: null,
       tooltip: { enabled:false },
+      //tooltip: { enabled:true },
       type: 'column',
       xAxis: {
+        title: { text: '*NRE: No Runoff Expected' },
         type: 'datetime',
-        tickInterval:518400000, dateTimeLabelFormats:{ day:'%d %b', week:'%d %b', month:'%b<br/>%Y', year:'%Y' },
+        //tickInterval:518400000, dateTimeLabelFormats:{ day:'%d %b', week:'%d %b', month:'%b<br/>%Y', year:'%Y' },
+        dateTimeLabelFormats:{ day:'%d %b', week:'%d %b', month:'%b<br/>%Y', year:'%Y' },
         events: {
           afterSetExtremes (e) {
             updateExtremes(e)
           }
         }
       },
-      yAxis: { title:null, max:4, min:0, labels:{ enabled:false }, tickInterval: 1 },
+      yAxis: { title:null, max:4, min:0, labels:{ enabled:false }, tickInterval: 1,
+      },
       zoneAxis: 'y',
       zones: zones, 
     }
@@ -149,31 +175,40 @@ class ThreatColumnChart extends Component {
             chart: { borderColor: '#98AFC7', borderWidth: 2, height:250, spacingTop: 10, marginTop: 0 },
             //title: { text: 'Air and Soil Temperature (°F)', style: {fontWeight: 'bold'} },
             title: null,
+            subtitle: null,
             legend: {
               enabled:true, verticalAlign: 'top', y: -38,
               itemStyle: { 'fontSize': '14px' }
             },
             rangeSelector: { selected: 0, height: 0,
-              buttons: [
-                { type:'day', count:10, text:'10 days' },
-                { type:'day', count:30, text:'30 days' },
-                { type:'all', text:'Season' }
-              ],
               inputEnabled: false, buttonTheme: { visibility: 'hidden' }, labelStyle: { visibility: 'hidden' },
             },
-            navigator:{ enabled:true, height:40, margin:5, handles:{ borderColor:'#0000ff' }, series: { type:'columnrange' } },
+            //rangeSelector: { selected: 0, height: 0,
+            //  buttons: [
+            //    { type:'day', count:10, text:'10 days' },
+            //    { type:'day', count:30, text:'30 days' },
+            //    { type:'day', count:90, text:'90 days' },
+            //  ],
+            //  inputEnabled: false, buttonTheme: { visibility: 'hidden' }, labelStyle: { visibility: 'hidden' },
+            //},
+            //navigator:{ enabled:true, height:40, margin:5, handles:{ borderColor:'#0000ff' }, series: { type:'columnrange' } },
             series: [{
               type: 'columnrange',
-              name: 'Air Temp Range (°F)',
+              name: 'Air Temp Range Fcst (°F)',
               data: dailyExtremeTemp, showInNavigator: true,
+              dataLabels: { enabled:true },
               color: '#000000'
             },{
               type: 'line',
-              name: '2" Soil Temp (°F)',
+              name: '2" Soil Temp Fcst (°F)',
               data: this.props.pointData['soilTemp2in'], showInNavigator: false,
               color: '#aaaaaa',
               lineWidth: 3
             }],
+            xAxis: {
+              title: null,
+              dateTimeLabelFormats:{ day:'%d %b', week:'%d %b', month:'%b<br/>%Y', year:'%Y' },
+            },
             yAxis: {
               labels:{ enabled:true },
               plotLines: [{
@@ -195,30 +230,44 @@ class ThreatColumnChart extends Component {
           options={Object.assign(this.genChartConfig(data_model, dataForZones, model_dates, season), {
             chart: { borderColor: '#98AFC7', borderWidth: 2, height:250, spacingTop: 10, marginTop: 0 },
             title: null,
+            subtitle: null,
             legend: {
               enabled:true, verticalAlign: 'top', y: -38,
               itemStyle: { 'fontSize': '14px' }
             },
             rangeSelector: { selected: 0, height: 0,
-              buttons: [
-                { type:'day', count:10, text:'10 days' },
-                { type:'day', count:30, text:'30 days' },
-                { type:'all', text:'Season' }
-              ],
               inputEnabled: false, buttonTheme: { visibility: 'hidden' }, labelStyle: { visibility: 'hidden' },
             },
-            navigator:{ enabled:true, height:40, margin:5, handles:{ borderColor:'#0000ff' }, series: { type:'column' } },
+            //rangeSelector: { selected: 0, height: 0,
+            //  buttons: [
+            //    { type:'day', count:10, text:'10 days' },
+            //    { type:'day', count:30, text:'30 days' },
+            //    { type:'day', count:90, text:'90 days' },
+            //  ],
+            //  inputEnabled: false, buttonTheme: { visibility: 'hidden' }, labelStyle: { visibility: 'hidden' },
+            //},
+            //navigator:{ enabled:true, height:40, margin:5, handles:{ borderColor:'#0000ff' }, series: { type:'column' } },
             series: [{
               type: 'area',
-              name: 'Snow Water Equivalent (in)',
+              name: 'Snow Water Equiv Fcst (in)',
               data: this.props.pointData['SWE'], showInNavigator: false,
               color: '#aed6f1'
             },{
               type: 'column',
-              name: 'Precipitation (in)',
+              name: 'Precipitation Fcst (in)',
               data: this.props.pointData['precip'], showInNavigator: true,
+              dataLabels: {
+                enabled:true,
+                formatter: function(){
+                  return (this.y!==0) ? this.y.toFixed(2) : '';
+                }
+              },
               color: '#00aa00'
             }],
+            xAxis: {
+              title: null,
+              dateTimeLabelFormats:{ day:'%d %b', week:'%d %b', month:'%b<br/>%Y', year:'%Y' },
+            },
             yAxis: {labels:{ enabled:true }},
           })}
         />

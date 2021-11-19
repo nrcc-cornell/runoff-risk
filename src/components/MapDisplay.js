@@ -3,11 +3,16 @@ import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
 //import '../styles/mapLegend.css';
 import PropTypes from 'prop-types';
 //import ls from 'local-storage';
+import Grid from '@material-ui/core/Grid';
+//import ReactHtmlParser from 'react-html-parser';
 
 import React, {Component} from 'react';
+//import MapGL, {NavigationControl, Popup} from 'react-map-gl';
 import MapGL, {NavigationControl, Popup} from 'react-map-gl';
 import Geocoder from 'react-map-gl-geocoder';
 import mapboxgl from 'mapbox-gl';
+
+import Button from '@material-ui/core/Button';
 
 import MapLegend from './MapLegend';
 
@@ -56,6 +61,8 @@ class MapDisplay extends Component {
       this.state = {
         //coordinates: ls('RUNOFFRISK.lon') ? [ls('RUNOFFRISK.lon'),ls('RUNOFFRISK.lat')] : [-76.5,42.5],
         //popupIsVisible: ls('RUNOFFRISK.lon') ? true : false,
+        //selectionConfirmed: ls('RUNOFFRISK.lon') ? true : false,
+        //selectionConfirmed: false,
         imgsrc: null,
         imgcoords: [
           [-79.95970329697062, 46.54645497007963],
@@ -68,20 +75,20 @@ class MapDisplay extends Component {
 
   componentDidMount() {
     if (this.props.date && this.props.dateFcstInit && this.props.variable) {
+      let public_url = process.env.PUBLIC_URL
       this.setState({
-        //imgsrc: 'http://tools.climatesmartfarming.org/runoff-risk/static/NY_RRAF_'+this.props.variable+'_'+this.props.date.slice(4,8)+this.props.date.slice(0,4)+'.png'
         //add value at end of string to try and eliminate caching
-        imgsrc: 'http://tools.climatesmartfarming.org/runoff-risk/static/NY_RRAF_'+this.props.variable+'_'+this.props.date.slice(4,8)+this.props.date.slice(0,4)+'.png?'+this.props.dateFcstInit
+        imgsrc: public_url+'/fcst_map_images/NY_RRAF_'+this.props.variable+'_'+this.props.date.slice(4,8)+this.props.date.slice(0,4)+'.png?'+this.props.dateFcstInit
       })
     }
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.date!==this.props.date || prevProps.dateFcstInit!==this.props.dateFcstInit || prevProps.variable!==this.props.variable) {
+      let public_url = process.env.PUBLIC_URL
       this.setState({
-        //imgsrc: 'http://tools.climatesmartfarming.org/runoff-risk/static/NY_RRAF_'+this.props.variable+'_'+this.props.date.slice(4,8)+this.props.date.slice(0,4)+'.png'
         //add value at end of string to try and eliminate caching
-        imgsrc: 'http://tools.climatesmartfarming.org/runoff-risk/static/NY_RRAF_'+this.props.variable+'_'+this.props.date.slice(4,8)+this.props.date.slice(0,4)+'.png?'+this.props.dateFcstInit
+        imgsrc: public_url+'/fcst_map_images/NY_RRAF_'+this.props.variable+'_'+this.props.date.slice(4,8)+this.props.date.slice(0,4)+'.png?'+this.props.dateFcstInit
       })
     }
   }
@@ -98,6 +105,7 @@ class MapDisplay extends Component {
       ...geocoderDefaultOverrides
     }
 
+    //this.handleSelectionConfirmed(false);
     this.props.handlePointChange(viewport.latitude,viewport.longitude);
     this.props.handleViewportChange(viewport_updated)
   }
@@ -105,12 +113,24 @@ class MapDisplay extends Component {
   handleMapClick = (e) => {
       //console.log('map click');
       //console.log(e.lngLat);
+      this.props.handleSelectionConfirmed(false);
       this.props.handlePointChange(e.lngLat[1],e.lngLat[0]);
       let viewport_updated = {
         ...this.props.viewport,
         ...{latitude:e.lngLat[1],longitude:e.lngLat[0],zoom:14},
       }
       this.props.handleViewportChange(viewport_updated)
+  }
+
+  //handleSelectionConfirmed = (b) => {
+  //    this.setState({
+  //      selectionConfirmed: b
+  //    })
+  //}
+
+  handleSaveLocation = () => {
+      this.props.handleSelectionConfirmed(true);
+      this.props.handleViewportChange({'zoom':6});
   }
 
   mapStyle = (imgsrc,imgcoords) => {
@@ -155,8 +175,15 @@ class MapDisplay extends Component {
     return 'mapbox://styles/mapbox/satellite-streets-v11'
   };
 
+  onChangeClick = () => {
+    this.props.initLocation()
+  }
+
   render() {
+    //const { classes } = this.props;
     const {imgsrc, imgcoords} = this.state;
+    const idxLocationTextEnd = (this.props.locationText) ? this.props.locationText.indexOf(', New York') : null
+    const locationText = (idxLocationTextEnd) ? this.props.locationText.slice(0,idxLocationTextEnd) : null
     return (
       <div>
       <div
@@ -171,15 +198,16 @@ class MapDisplay extends Component {
         mapStyle={(this.props.viewport.zoom>=11) ? this.mapStyleSatellite() : this.mapStyle(imgsrc,imgcoords)}
         mapboxApiAccessToken={TOKEN}
         onViewportChange={this.props.handleViewportChange}
-        onClick={(event) => {
-          this.handleMapClick(event)
+        onClick={(event) => { !this.props.selectionConfirmed &&
+            this.handleMapClick(event)
         }}
       >
+        { !this.props.selectionConfirmed &&
         <div className="geo" style={geocoderStyle}>
           <Geocoder
             mapRef={this.mapRef}
             containerRef={this.geocoderContainerRef}
-            placeholder='Find address or location'
+            placeholder='Type address / click map'
             proximity={{'longitude':-76.5,'latitude':42.5}}
             clearOnBlur={true}
             countries='us'
@@ -190,6 +218,7 @@ class MapDisplay extends Component {
             mapboxApiAccessToken={TOKEN}
           />
         </div>
+        }
         <div className="nav" style={navStyle}>
           <NavigationControl showCompass={false} />
         </div>
@@ -201,12 +230,32 @@ class MapDisplay extends Component {
           longitude={this.props.lon}
           latitude={this.props.lat}
           closeButton={false}
-          closeOnClick={false}
+          closeOnClick={true}
+          captureClick={true}
           anchor='top'
         >
+          { !this.props.selectionConfirmed &&
           <div>
-            Selected:<br/>{this.props.lon.toFixed(3)},{this.props.lat.toFixed(3)}
+            <b>Options:</b><br/>1. Continue Fine-tuning selection<br/>-OR-<br/>2.&nbsp;
+                  <Button
+                    variant="contained" color="primary" size="small"
+                    onClick={() => this.handleSaveLocation()}
+                  >
+                    Save This Location
+                  </Button>
           </div>
+          }
+          { this.props.selectionConfirmed &&
+          <Grid container direction="column" justify="center" alignItems="center">
+            <b>Selected location details:</b>
+            {locationText}<br/>
+            Lon: {this.props.lon.toFixed(4)}, Lat: {this.props.lat.toFixed(4)}
+            <br/><br/>
+            <Button variant="contained" color="primary" size="small" onClick={this.onChangeClick}>
+              Clear Selection
+            </Button>
+          </Grid>
+          }
         </Popup>
         }
       </MapGL>
@@ -218,11 +267,15 @@ class MapDisplay extends Component {
 MapDisplay.propTypes = {
   lon: PropTypes.number,
   lat: PropTypes.number,
+  locationText: PropTypes.string,
+  selectionConfirmed: PropTypes.bool.isRequired,
   viewport: PropTypes.object.isRequired,
   variable: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   dateFcstInit: PropTypes.string.isRequired,
+  initLocation: PropTypes.func.isRequired,
   handlePointChange: PropTypes.func.isRequired,
+  handleSelectionConfirmed: PropTypes.func.isRequired,
   handleViewportChange: PropTypes.func.isRequired,
   handleGeocoderLocationChange: PropTypes.func.isRequired,
 };

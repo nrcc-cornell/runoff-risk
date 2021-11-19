@@ -17,7 +17,7 @@ class DailyDataComponent extends React.Component {
 
     return (
       <tr id="daily-data" className="row_1">
-        <th className="series-name data">Daily</th>
+        <th className="series-name data">{this.props.seriesName}</th>
         <td className="series-data">
           { indexes.map(function(idx) {
             let key_str = 'daily' + idx.toString();
@@ -73,7 +73,16 @@ class ThreatDashboardTable extends React.Component {
         </div>
         <table className="turf-dashboard-table" cellPadding="0" cellSpacing="0">
         <tbody>
-          <DailyDataComponent pointData={this.props.pointData} riskData={this.createRiskCategories(this.props.pointData['riskWinter'])}/>
+          <DailyDataComponent
+            pointData={this.props.pointData}
+            riskData={this.createRiskCategories(this.props.pointData['riskWinter72hr'])}
+            seriesName='72-hr Risk'
+          />
+          <DailyDataComponent
+            pointData={this.props.pointData}
+            riskData={this.createRiskCategories(this.props.pointData['riskWinter'])}
+            seriesName='Daily Risk'
+          />
           <DashboardDates pointData={this.props.pointData} />
         </tbody>
         </table>

@@ -91,8 +91,10 @@ class Header extends React.Component {
       return 0
     } else if (this.props.history.location.pathname==='/forecast') {
       return 0
-    } else if (this.props.history.location.pathname==='/about') {
+    } else if (this.props.history.location.pathname==='/howto') {
       return 1
+    } else if (this.props.history.location.pathname==='/about') {
+      return 2
     } else {
     }
   }
@@ -102,9 +104,15 @@ class Header extends React.Component {
     if (value===0) {
         // go to home (forecast) page
         this.props.history.push('/');
-    } else {
+    } else if (value===1) {
+        // go to howto page
+        this.props.history.push('/howto');
+    } else if (value===2) {
         // go to about page
         this.props.history.push('/about');
+    } else {
+        // go to home (forecast) page
+        this.props.history.push('/');
     }
     //this.props.store.app.setActivePage(value);
   };
@@ -146,7 +154,8 @@ class Header extends React.Component {
                 variant="standard"
               >
                 <Tab classes={{ root: classes.tab }} label="FORECAST" value={0} />
-                <Tab classes={{ root: classes.tab }} label="ABOUT" value={1} />
+                <Tab classes={{ root: classes.tab }} label="HOW TO" value={1} />
+                <Tab classes={{ root: classes.tab }} label="ABOUT" value={2} />
               </Tabs>
             </section>
           </Toolbar>
@@ -159,7 +168,8 @@ class Header extends React.Component {
                 variant="standard"
               >
                 <Tab label="FORECAST" value={0} />
-                <Tab label="ABOUT" value={1} />
+                <Tab label="HOW TO" value={1} />
+                <Tab label="ABOUT" value={2} />
               </Tabs>
           </div>
         </AppBar>

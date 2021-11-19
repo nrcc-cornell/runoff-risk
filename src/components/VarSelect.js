@@ -21,7 +21,8 @@ const styles = theme => ({
 
 const getLabel = (v) => {
   let labels = {
-    'dailyRiskPercWinter': 'Runoff Risk',
+    'dailyRiskPercWinter72Hour': 'Runoff Risk (72-hour)',
+    'dailyRiskPercWinter': 'Runoff Risk (24-hour)',
     'dailyPrecip': 'Precipitation (in)',
     'dailyAvgSoilSat_2in': 'Soil Saturation (2" depth, %)',
     'dailyAvgSoilSat_6in': 'Soil Saturation (6" depth, %)',

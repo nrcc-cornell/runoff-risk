@@ -5,7 +5,7 @@ class DashboardLegend extends React.Component {
   render() {
     let legend = {
       'classes': ['no_risk','low','moderate','high',' ','no_risk_fzn','high_fzn'],
-      'labels': ['No Risk','Low','Moderate','High',' ','No Risk (FZN)','High (FZN)'],
+      'labels': ['NRE*','Low','Moderate','High',' ','NRE* (FZN)','High (FZN)'],
     }
 
     return (

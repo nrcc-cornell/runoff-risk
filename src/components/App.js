@@ -18,6 +18,8 @@ import {
 // Components
 import Header from '../components/Header';
 import AboutContents from '../components/AboutContents';
+import HowtoContents from '../components/HowtoContents';
+import Disclaimer from '../components/Disclaimer';
 import ToolContents from '../components/ToolContents';
 //import MapDisplay from '../components/MapDisplay';
 import Footer from '../components/Footer';
@@ -75,12 +77,15 @@ class App extends Component {
             <MuiThemeProvider theme={theme}>
               <div id="container" className="App">
                 <Header />
-                <br/><br/>
+                <br/>
+                <Disclaimer />
+                <br/>
 
                 <div id="main-content">
                 <Switch>
                   <Route exact path="/" render={(props) => <ToolContents {...props} />} />
                   <Route exact path="/forecasts" render={(props) => <ToolContents {...props} />} />
+                  <Route path="/howto" component={HowtoContents} />
                   <Route path="/about" component={AboutContents} />
                   <Route render={() => <Redirect to="/" />} />
                 </Switch>
