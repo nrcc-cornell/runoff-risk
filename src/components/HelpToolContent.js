@@ -9,7 +9,7 @@ const HelpToolLocation = () => {
         return (
             <Box maxWidth={600} padding={1} border={1} borderRadius={4} borderColor="primary.main" bgcolor="#f5f5dc">
               <p>
-                This section of the <b>Nutrient Applicator Forecast</b> tool summarizes your selected location details.
+                This section of the <b>Runoff Risk Forecast</b> tool summarizes your selected location details.
               </p>
               <p>
                 <b>Longitude and latitude</b> coordinates will always be provided. Additionally, if your location was selected by typing in an address, that <b>address</b> is also provided.
@@ -28,7 +28,7 @@ const HelpToolFcst72hr = () => {
         return (
             <Box maxWidth={600} padding={1} border={1} borderRadius={4} borderColor="primary.main" bgcolor="#f5f5dc">
               <p>
-                This section of the <b>Nutrient Applicator Forecast</b> tool summarizes the maximum runoff risk expected over the next 3 days. The dates included in this short-term forecast summary are listed in the header of this section.
+                This section of the <b>Runoff Risk Forecast</b> tool summarizes the maximum runoff risk expected over the next 3 days. The dates included in this short-term forecast summary are listed in the header of this section.
               </p>
               <p>
                 Forecast models run overnight. When finished, updated forecasts are posted at approximately 6:30am ET each morning.
@@ -61,7 +61,7 @@ const HelpToolFcstDetails = () => {
         return (
             <Box maxWidth={600} padding={1} border={1} borderRadius={4} borderColor="primary.main" bgcolor="#f5f5dc">
               <p>
-                This section of the <b>Nutrient Applicator Forecast</b> tool provides daily details of the full 10-day runoff risk forecast.
+                This section of the <b>Runoff Risk Forecast</b> tool provides daily details of the full 10-day runoff risk forecast.
               </p>
               <p>
                 The <b>main color table</b> at the top of this section shows the upcoming 72-hr risk beginning on each date, along with the individual daily risks that comprise the 72-hr risk forecasts.
@@ -80,7 +80,7 @@ const HelpToolMap = () => {
         return (
             <Box maxWidth={800} padding={1} border={1} borderRadius={4} borderColor="primary.main" bgcolor="#f5f5dc">
               <p>
-                This section of the <b>Nutrient Applicator Forecast</b> tool provides regional forecast maps for New York State over the next 5 days. Available user selections include items below.
+                This section of the <b>Runoff Risk Forecast</b> tool provides regional forecast maps for New York State over the next 5 days. Available user selections include items below.
               </p>
               <span>
                 <b>VARIABLE</b> is the type of forecast element available to view.<br/>

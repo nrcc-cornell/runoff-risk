@@ -37,10 +37,10 @@ class AboutContents extends Component {
             <Grid container className={classes.root} spacing={6}>
               <Grid item sm={12} md={6}>
                     <Typography component={'div'} align="left" paragraph variant="h2" className={classes.aboutHeaderText}>
-                      Purpose of the Nutrient Applicator Forecast
+                      Purpose of the Runoff Risk Forecast
                     </Typography>
                     <Typography component={'div'} align="justify" paragraph variant="body1">
-The <b>New York State Nutrient Applicator Forecast</b> is a decision support tool designed to help farmers and commercial applicators determine the best time to spread manure. The model used by this tool uses National Weather Service forecasts for precipitation, temperature, soil moisture, snow cover and landscape characteristics to provide information about potential runoff risk in your area for the next 10 days. The forecasts are intended to be used <i>in addition to</i> other sources of information, and alongside the user's local knowledge and experience. Together, this information can be used to keep applications on target, increasing productivity and decreasing the risk of local water contamination.
+The <b>New York State Runoff Risk Forecast</b> is a decision support tool designed to help farmers and commercial applicators determine the best time to spread manure. The model used by this tool uses National Weather Service forecasts for precipitation, temperature, soil moisture, snow cover and landscape characteristics to provide information about potential runoff risk in your area for the next 10 days. The forecasts are intended to be used <i>in addition to</i> other sources of information, and alongside the user's local knowledge and experience. Together, this information can be used to keep applications on target, increasing productivity and decreasing the risk of local water contamination.
                     </Typography>
                     <Typography component={'div'} align="justify" paragraph variant="body1">
 Runoff risk is forecasted for the next 10 days, with forecasts summarized into 72-hour and 24-hour intervals. While regional forecasts maps are available for an overall assessment of state conditions, selecting and viewing forecasts for specific locations of interest will be most useful. Each point forecast is for a 4 km<sup>2</sup> area (~1000 acres) that includes a selected location. The risk is grouped into four categories:
@@ -50,7 +50,7 @@ Runoff risk is forecasted for the next 10 days, with forecasts summarized into 7
 <li><b>Moderate (orange)</b> : The risk of a runoff event is moderate. Use this information along with other factors to determine spreading.</li>
 <li><b>High (red, purple)</b> : The risk of a runoff event is high. Use this information along with other factors to determine spreading.</li>
 </ul>
-As noted, these forecasts are intended to be used as one tool during decision making. When the risk is Moderate or Severe for the area, it is recommended that the applicator closely evaluate the situation at the field level to determine if there are other locations or later dates when the application could take place.
+As noted, these forecasts are intended to be used as one tool during decision making. When the risk is Moderate or High for the area, it is recommended that the applicator closely evaluate the situation at the field level to determine if there are other locations or later dates when the application could take place.
                     </Typography>
                     <Typography component={'div'} align="justify" paragraph variant="body1">
 For more details about using these forecasts, please visit the How To section.

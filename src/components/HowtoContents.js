@@ -142,7 +142,7 @@ A <b>SHOW ASSUMPTIONS</b> button provides you with important details about curre
                     <Divider variant="middle"/>
                     </Typography>
                     <Typography component={'div'} align="left" paragraph variant="h4" className={classes.howtoHeaderTextSub}>
-                      Nutrient Runoff Risk Forecast (full 10 days)
+                      Runoff Risk Forecast (full 10 days)
                     </Typography>
                     <Typography component={'div'} align="justify" paragraph variant="body1">
 Below the 72-hr summary forecast is a more comprehensive view of the full 10-day forecast issued today. Always visible is the main color table at the top of the section. This table shows the upcoming 72-hr risk beginning on each date, along with the individual daily risks that comprise the 72-hr risk forecasts.

@@ -110,7 +110,7 @@ class ThreatColumnChart extends Component {
           zones: zones, 
         },
       ],
-      title: { text: 'Nutrient Runoff Risk Forecasts* (Daily)', style: {fontWeight: 'bold'} },
+      title: { text: 'Runoff Risk Forecasts* (Daily)', style: {fontWeight: 'bold'} },
       //subtitle: {
       //  enabled: true,
       //  text: '*NRE : No Runoff Expected',

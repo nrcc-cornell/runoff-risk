@@ -131,15 +131,15 @@ class Header extends React.Component {
           <Toolbar>
             <div className={classes.titleLong} onClick={() => {this.props.history.push('/')}}>
                 <Typography variant="h1" className={classes.headerText}>
-                        Nutrient Applicator Forecast For New York State
+                        Runoff Risk Forecast For New York State
                 </Typography>
                 <Typography variant="h2" className={classes.subHeaderText}>
-                        Decision support tool for managing nutrient runoff risk
+                        Decision support tool for managing runoff risk
                 </Typography>
             </div>
             <div className={classes.titleShort} onClick={() => {this.props.history.push('/')}}>
                 <Typography variant="h1" className={classes.headerText}>
-                        NYS Applicator Forecast
+                        NYS Runoff Risk Forecast
                 </Typography>
                 <Typography variant="h2" className={classes.subHeaderText}>
                         Support for managing runoff risk

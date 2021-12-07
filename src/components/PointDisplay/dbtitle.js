@@ -10,7 +10,7 @@ class DashboardTitle extends React.Component {
     let day = this.props.pointData['dates'][fcast_idx].slice(6,8)
 
     return (
-      <div className="dashboard-title">Nutrient Runoff Risk Forecast issued {month}-{day}-{year}</div>
+      <div className="dashboard-title">Runoff Risk Forecast issued {month}-{day}-{year}</div>
     )
   }
 }
