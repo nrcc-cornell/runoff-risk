@@ -78,7 +78,7 @@ class MapDisplay extends Component {
       let public_url = process.env.PUBLIC_URL
       this.setState({
         //add value at end of string to try and eliminate caching
-        imgsrc: public_url+'/fcst_map_images/NY_RRAF_'+this.props.variable+'_'+this.props.date.slice(4,8)+this.props.date.slice(0,4)+'.png?'+this.props.dateFcstInit
+        imgsrc: public_url+'/fcst_map_images/NY_'+this.props.variable+'_'+this.props.date.slice(4,8)+this.props.date.slice(0,4)+'.png?'+this.props.dateFcstInit
       })
     }
   }
@@ -88,7 +88,7 @@ class MapDisplay extends Component {
       let public_url = process.env.PUBLIC_URL
       this.setState({
         //add value at end of string to try and eliminate caching
-        imgsrc: public_url+'/fcst_map_images/NY_RRAF_'+this.props.variable+'_'+this.props.date.slice(4,8)+this.props.date.slice(0,4)+'.png?'+this.props.dateFcstInit
+        imgsrc: public_url+'/fcst_map_images/NY_'+this.props.variable+'_'+this.props.date.slice(4,8)+this.props.date.slice(0,4)+'.png?'+this.props.dateFcstInit
       })
     }
   }

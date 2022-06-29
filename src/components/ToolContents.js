@@ -66,8 +66,10 @@ class ToolContents extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          variable: 'dailyRiskPercWinter72Hour',
-          variables: ['dailyRiskPercWinter72Hour','dailyRiskPercWinter','dailyPrecip','dailyAvgSWE','dailyAvgSoilSat_2in','dailyAvgSoilSat_6in','dailyAvgSoilSat_sfcTo10in','dailyAvgSoilTemp_2in','dailyAvgSoilTemp_6in','dailyAvgSoilTemp_sfcTo10in'],
+          //variable: 'dailyRiskPercWinter72Hour',
+          //variables: ['dailyRiskPercWinter72Hour','dailyRiskPercWinter','dailyPrecip','dailyAvgSWE','dailyAvgSoilSat_2in','dailyAvgSoilSat_6in','dailyAvgSoilSat_sfcTo10in','dailyAvgSoilTemp_2in','dailyAvgSoilTemp_6in','dailyAvgSoilTemp_sfcTo10in'],
+          variable: 'RRAF_dailyRiskPercWinter72Hour',
+          variables: ['RRAF_dailyRiskPercWinter72Hour','RRAF_dailyRiskPercWinter','dailyPrecip_vol_INCHES','dailyAvgSWE_INCHES','dailyAvgSoilSat_2in','dailyAvgSoilSat_6in','dailyAvgSoilSat_sfc10','dailyAvgSoilTemp_2in_F','dailyAvgSoilTemp_6in_F','dailyAvgSoilTemp_sfc10_F'],
           date: null,
           dates: null,
           datesEnd72hrRange: null,
@@ -410,7 +412,7 @@ class ToolContents extends Component {
                               <DateSelect
                                 value={this.state.date}
                                 valuesStartRange={this.state.dates}
-                                valuesEndRange={(this.state.variable==='dailyRiskPercWinter72Hour') ? this.state.datesEnd72hrRange : []}
+                                valuesEndRange={(this.state.variable==='RRAF_dailyRiskPercWinter72Hour') ? this.state.datesEnd72hrRange : []}
                                 onchange={this.handleDateChange}
                               />
                             }

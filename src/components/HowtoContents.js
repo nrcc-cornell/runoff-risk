@@ -52,16 +52,16 @@ Forecasted runoff is categorized into multiple risk levels under either winter c
                     <Typography component={'div'} align="justify" variant="body1">
                       Forecasted <b>risk categories</b> issued under <b>non-winter conditions</b> include:<br/>
                       <ul>
-                      <li><b><span style={{color:'#52be80'}}>NO RUNOFF EXPECTED (NRE)</span></b>: Little or no runoff is forecasted for your local area.</li>
-                      <li><b><span style={{color:'#ffd700'}}>LOW RISK</span></b>: Minor risk of a runoff event is forecasted for your local area. This minor event is expected to be less intense than at least half of the runoff events typically experienced during this time of year.</li>
-                      <li><b><span style={{color:'#ffaa1c'}}>MODERATE RISK</span></b>: The risk of a runoff event is moderate, and expected to be more intense than at least half of the runoff events typically experienced during this time of year. Use this information along with other factors to determine spreading. </li>
-                      <li><b><span style={{color:'#ff0000'}}>HIGH RISK</span></b>: The risk of a runoff event is high, and expected to be more intense than at least 75% of the runoff events typically experienced during this time of year. Use this information along with other factors to determine spreading.</li>
+                      <li><b><span style={{color:'#52be80'}}>LITTLE/NO RUNOFF (LNR)</span></b>: Little or no runoff is forecasted for your local area.</li>
+                      <li><b><span style={{color:'#ffd700'}}>LOW RISK</span></b>: Minor risk of a runoff event is forecasted for your local area. This minor event is expected to be less intense than at least 40% of the runoff events typically experienced during this time of year.</li>
+                      <li><b><span style={{color:'#ffaa1c'}}>MODERATE RISK</span></b>: The risk of a runoff event is moderate, and expected to be more intense than at least 60% of the runoff events typically experienced during this time of year. Use this information along with other factors to determine spreading. </li>
+                      <li><b><span style={{color:'#ff0000'}}>HIGH RISK</span></b>: The risk of a runoff event is high, and expected to be more intense than at least 90% of the runoff events typically experienced during this time of year. Use this information along with other factors to determine spreading.</li>
                       </ul>
                     </Typography>
                     <Typography component={'div'} align="justify" variant="body1">
                       Forecasted <b>risk categories</b> issued under <b>winter conditions</b> include:<br/>
                       <ul>
-                      <li><b><span style={{color:'#5dade2'}}>NO RUNOFF EXPECTED (NRE)</span></b>: There is no immediate risk of runoff expected, but winter conditions are present. Snow cover and/or frozen soil increases the likelihood of a runoff event in the future.</li>
+                      <li><b><span style={{color:'#5dade2'}}>LITTLE/NO RUNOFF (LNR)</span></b>: There is very little immediate risk of runoff expected, but winter conditions are present. Snow cover and/or frozen soil increases the likelihood of a runoff event in the future.</li>
                       <li><b><span style={{color:'#8e44ad'}}>HIGH RISK</span></b>: The risk of a runoff event is high, with winter conditions present. Either rainfall or snowmelt is expected in combination with these winter conditions. With snow cover or frozen soil present, even small amounts of rainfall or snowmelt produces a high risk for runoff.</li>
                       </ul>
                     </Typography>

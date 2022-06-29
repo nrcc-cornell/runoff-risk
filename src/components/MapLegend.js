@@ -12,20 +12,20 @@ const mapLegendStyle = {
 
 const getLabel = (v) => {
   let labels = {
-    'dailyRiskPerc': 'Runoff Risk (24-hour)',
-    'dailyRiskPerc72Hour': 'Runoff Risk (72-hour)',
-    'dailyRiskPercWinter': 'Runoff Risk (24-hour)',
-    'dailyRiskPercWinter72Hour': 'Runoff Risk (72-hour)',
-    'dailyRiskPercWinterTotal': 'Runoff Risk (10-day)',
-    'dailyPrecip': 'Precipitation (in)',
+    'RRAF_dailyRiskPerc': 'Runoff Risk (24-hour)',
+    'RRAF_dailyRiskPerc72Hour': 'Runoff Risk (72-hour)',
+    'RRAF_dailyRiskPercWinter': 'Runoff Risk (24-hour)',
+    'RRAF_dailyRiskPercWinter72Hour': 'Runoff Risk (72-hour)',
+    'RRAF_dailyRiskPercWinterTotal': 'Runoff Risk (10-day)',
+    'dailyPrecip_vol_INCHES': 'Precipitation (in)',
     'dailyAvgSoilSat_2in': 'Soil Saturation (2" depth, %)',
     'dailyAvgSoilSat_6in': 'Soil Saturation (6" depth, %)',
-    'dailyAvgSoilSat_sfcTo10in': 'Soil Saturation (sfc-10", %)',
-    'dailyAvgSoilTemp_2in': 'Soil Temperature (2" depth, °F)',
-    'dailyAvgSoilTemp_6in': 'Soil Temperature (6" depth, °F)',
-    'dailyAvgSoilTemp_sfcTo10in': 'Soil Temperature (sfc-10", °F)',
-    'dailyAvgSnowDepth': 'Snow Depth (in)',
-    'dailyAvgSWE': 'Snow Water Equivalent (in)'
+    'dailyAvgSoilSat_sfc10': 'Soil Saturation (sfc-10", %)',
+    'dailyAvgSoilTemp_2in_F': 'Soil Temperature (2" depth, °F)',
+    'dailyAvgSoilTemp_6in_F': 'Soil Temperature (6" depth, °F)',
+    'dailyAvgSoilTemp_sfc10_F': 'Soil Temperature (sfc-10", °F)',
+    'dailyAvgSnowDepth_INCHES': 'Snow Depth (in)',
+    'dailyAvgSWE_INCHES': 'Snow Water Equivalent (in)'
   }
   return labels[v]
 }
@@ -37,16 +37,16 @@ class MapLegend extends React.Component {
       return (
         <div className="map-legend" style={mapLegendStyle}>
           <div className="map-legend-title">{getLabel(this.props.variable)}</div>
-          <div className={"color-box rr-color-1"}></div><span className="map-legend-label">No Runoff Expected</span><br/>
+          <div className={"color-box rr-color-1"}></div><span className="map-legend-label">Little/No Runoff</span><br/>
           <div className={"color-box rr-color-2"}></div><span className="map-legend-label">Low</span><br/>
           <div className={"color-box rr-color-3"}></div><span className="map-legend-label">Moderate</span><br/>
           <div className={"color-box rr-color-4"}></div><span className="map-legend-label">High</span><br/>
           <div className="map-legend-title">Frozen Soil / Snow</div>
-          <div className={"color-box rr-color-5"}></div><span className="map-legend-label">No Runoff Expected</span><br/>
+          <div className={"color-box rr-color-5"}></div><span className="map-legend-label">Little/No Runoff</span><br/>
           <div className={"color-box rr-color-6"}></div><span className="map-legend-label">High</span><br/>
         </div>
       )
-    } else if (this.props.variable==='dailyPrecip' || this.props.variable==='dailyAvgSWE') {
+    } else if (this.props.variable==='dailyPrecip_vol_INCHES' || this.props.variable==='dailyAvgSWE_INCHES') {
       return (
         <div className="map-legend" style={mapLegendStyle}>
           <div className="map-legend-title">{getLabel(this.props.variable)}</div>

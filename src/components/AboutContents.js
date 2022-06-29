@@ -45,7 +45,7 @@ The <b>New York State Runoff Risk Forecast</b> is a decision support tool design
                     <Typography component={'div'} align="justify" paragraph variant="body1">
 Runoff risk is forecasted for the next 10 days, with forecasts summarized into 72-hour and 24-hour intervals. While regional forecasts maps are available for an overall assessment of state conditions, selecting and viewing forecasts for specific locations of interest will be most useful. Each point forecast is for a 4 km<sup>2</sup> area (~1000 acres) that includes a selected location. The risk is grouped into four categories:
 <ul>
-<li><b>No Runoff Expected (green, blue)</b> : Little or no runoff is forecasted for your local area.</li>
+<li><b>Little/No Runoff (green, blue)</b> : Little or no runoff is forecasted for your local area.</li>
 <li><b>Low (yellow)</b> : Minor risk of a runoff event is forecasted for your local area.</li>
 <li><b>Moderate (orange)</b> : The risk of a runoff event is moderate. Use this information along with other factors to determine spreading.</li>
 <li><b>High (red, purple)</b> : The risk of a runoff event is high. Use this information along with other factors to determine spreading.</li>
@@ -72,10 +72,10 @@ Once current conditions are established, the model runs into the future to creat
                     <Typography component={'div'} align="justify" variant="body1">
 In order to assess the severity of current runoff forecasts, the model is run using observations from each of the past 40 years. The historical runoff events are used for comparison with current runoff forecasts. This allows us to categorize a forecasted event based on runoff events that have happened in the past. Forecasted runoff risk severity levels have the following statistical definitions:
 <ul>
-<li><b>No Runoff Expected</b> : Forecasted runoff amount is lower than at least 75% of all historical runoff events during this month.</li>
-<li><b>Low</b> : Forecasted runoff amount is lower than at least 50% of all historical runoff events during this month.</li>
-<li><b>Moderate</b> : Forecasted runoff amount is higher than at least 50% of all historical runoff events during this month.</li>
-<li><b>High</b> : Forecasted runoff amount is higher than at least 75% of all historical runoff events during this month.</li>
+<li><b>Little/No Runoff</b> : Forecasted runoff amount is lower than at least 70% of all historical runoff events during this month.</li>
+<li><b>Low</b> : Forecasted runoff amount is lower than at least 40% of all historical runoff events during this month.</li>
+<li><b>Moderate</b> : Forecasted runoff amount is higher than at least 60% of all historical runoff events during this month.</li>
+<li><b>High</b> : Forecasted runoff amount is higher than at least 90% of all historical runoff events during this month.</li>
 </ul>
                     </Typography>
                     <Typography component={'div'} align="justify" paragraph variant="body1">

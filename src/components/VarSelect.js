@@ -21,17 +21,17 @@ const styles = theme => ({
 
 const getLabel = (v) => {
   let labels = {
-    'dailyRiskPercWinter72Hour': 'Runoff Risk (72-hour)',
-    'dailyRiskPercWinter': 'Runoff Risk (24-hour)',
-    'dailyPrecip': 'Precipitation (in)',
+    'RRAF_dailyRiskPercWinter72Hour': 'Runoff Risk (72-hour)',
+    'RRAF_dailyRiskPercWinter': 'Runoff Risk (24-hour)',
+    'dailyPrecip_vol_INCHES': 'Precipitation (in)',
     'dailyAvgSoilSat_2in': 'Soil Saturation (2" depth, %)',
     'dailyAvgSoilSat_6in': 'Soil Saturation (6" depth, %)',
-    'dailyAvgSoilSat_sfcTo10in': 'Soil Saturation (sfc-10", %)',
-    'dailyAvgSoilTemp_2in': 'Soil Temperature (2" depth, °F)',
-    'dailyAvgSoilTemp_6in': 'Soil Temperature (6" depth, °F)',
-    'dailyAvgSoilTemp_sfcTo10in': 'Soil Temperature (sfc-10", °F)',
-    'dailyAvgSnowDepth': 'Snow Depth (in)',
-    'dailyAvgSWE': 'Snow Water Equivalent (in)'
+    'dailyAvgSoilSat_sfc10': 'Soil Saturation (sfc-10", %)',
+    'dailyAvgSoilTemp_2in_F': 'Soil Temperature (2" depth, °F)',
+    'dailyAvgSoilTemp_6in_F': 'Soil Temperature (6" depth, °F)',
+    'dailyAvgSoilTemp_sfc10_F': 'Soil Temperature (sfc-10", °F)',
+    'dailyAvgSnowDepth_INCHES': 'Snow Depth (in)',
+    'dailyAvgSWE_INCHES': 'Snow Water Equivalent (in)'
   }
   return labels[v]
 }
