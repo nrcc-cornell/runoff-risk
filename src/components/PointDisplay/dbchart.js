@@ -113,14 +113,14 @@ class ThreatColumnChart extends Component {
       title: { text: 'Runoff Risk Forecasts* (Daily)', style: {fontWeight: 'bold'} },
       //subtitle: {
       //  enabled: true,
-      //  text: '*NRE : No Runoff Expected',
+      //  text: '*NRE : Little/No Runoff Expected',
       //},
       subtitle: null,
       tooltip: { enabled:false },
       //tooltip: { enabled:true },
       type: 'column',
       xAxis: {
-        title: { text: '*NRE: No Runoff Expected' },
+        title: { text: '*NRE: Little/No Runoff Expected' },
         type: 'datetime',
         //tickInterval:518400000, dateTimeLabelFormats:{ day:'%d %b', week:'%d %b', month:'%b<br/>%Y', year:'%Y' },
         dateTimeLabelFormats:{ day:'%d %b', week:'%d %b', month:'%b<br/>%Y', year:'%Y' },
@@ -254,8 +254,8 @@ class ThreatColumnChart extends Component {
               color: '#aed6f1'
             },{
               type: 'column',
-              name: 'Precipitation Fcst (in)',
-              data: this.props.pointData['precip'], showInNavigator: true,
+              name: 'Rain+Snowmelt Fcst (in)',
+              data: this.props.pointData['RAIM'], showInNavigator: true,
               dataLabels: {
                 enabled:true,
                 formatter: function(){

@@ -69,7 +69,7 @@ class ToolContents extends Component {
           //variable: 'dailyRiskPercWinter72Hour',
           //variables: ['dailyRiskPercWinter72Hour','dailyRiskPercWinter','dailyPrecip','dailyAvgSWE','dailyAvgSoilSat_2in','dailyAvgSoilSat_6in','dailyAvgSoilSat_sfcTo10in','dailyAvgSoilTemp_2in','dailyAvgSoilTemp_6in','dailyAvgSoilTemp_sfcTo10in'],
           variable: 'RRAF_dailyRiskPercWinter72Hour',
-          variables: ['RRAF_dailyRiskPercWinter72Hour','RRAF_dailyRiskPercWinter','dailyPrecip_vol_INCHES','dailyAvgSWE_INCHES','dailyAvgSoilSat_2in','dailyAvgSoilSat_6in','dailyAvgSoilSat_sfc10','dailyAvgSoilTemp_2in_F','dailyAvgSoilTemp_6in_F','dailyAvgSoilTemp_sfc10_F'],
+          variables: ['RRAF_dailyRiskPercWinter72Hour','RRAF_dailyRiskPercWinter','dailyPrecip_vol_INCHES','dailyRAIM_vol_INCHES','dailyAvgSWE_INCHES','dailyAvgSoilSat_2in','dailyAvgSoilSat_6in','dailyAvgSoilSat_sfc10','dailyAvgSoilTemp_2in_F','dailyAvgSoilTemp_6in_F','dailyAvgSoilTemp_sfc10_F'],
           date: null,
           dates: null,
           datesEnd72hrRange: null,
@@ -148,17 +148,19 @@ class ToolContents extends Component {
                 LoadPointForecast({idxLon:idxLon.toString(), idxLat:idxLat.toString(), dateFcstInit:today_date})
                   .then(fcst_data => {
                     //console.log(fcst_data)
-                    let today_idx = fcst_data['dates'].indexOf(today_date)
-                    let today_snow_ge_1 = fcst_data['winterCond'][today_idx]
-                    let today_soil_frozen = fcst_data['winterCond'][today_idx]
+                    //let today_idx = fcst_data['dates'].indexOf(today_date)
+                    //let today_snow_ge_1 = fcst_data['winterCond'][today_idx]
+                    //let today_soil_frozen = fcst_data['winterCond'][today_idx]
+                    let today_snow_depth = fcst_data['initSnowDepth'][0]
+                    let today_soil_temp = fcst_data['initSoilTemp'][0]
                     this.setState({
                       idxLon: idxLon,
                       idxLat: idxLat,
                       //gridLons: response['lons'],
                       //gridLats: response['lats'],
                       pointData: fcst_data,
-                      userSnow: (today_snow_ge_1===2 || today_snow_ge_1===3) ? 'yes' : 'no',
-                      userSoilFzn: (today_soil_frozen===1 || today_soil_frozen===3) ? 'yes' : 'no',
+                      userSnow: (today_snow_depth>=1) ? 'yes' : 'no',
+                      userSoilFzn: (today_soil_temp<=32) ? 'yes' : 'no',
                       dataIsLoading: false
                     })
                   });
@@ -202,16 +204,20 @@ class ToolContents extends Component {
 	            // Find all forecast data for a given location
                     LoadPointForecast({idxLon:idxLon.toString(), idxLat:idxLat.toString(), dateFcstInit:this.state.dates[0]})
                       .then(fcst_data => {
-                        let today_date = moment().format('YYYYMMDD')
-                        let today_idx = fcst_data['dates'].indexOf(today_date)
-                        let today_snow_ge_1 = fcst_data['winterCond'][today_idx]
-                        let today_soil_frozen = fcst_data['winterCond'][today_idx]
+                        //let today_date = moment().format('YYYYMMDD')
+                        //let today_idx = fcst_data['dates'].indexOf(today_date)
+                        //let today_snow_ge_1 = fcst_data['winterCond'][today_idx]
+                        //let today_soil_frozen = fcst_data['winterCond'][today_idx]
+                        let today_snow_depth = fcst_data['initSnowDepth'][0]
+                        let today_soil_temp = fcst_data['initSoilTemp'][0]
                         this.setState({
                           idxLon: idxLon,
                           idxLat: idxLat,
                           pointData: fcst_data,
-                          userSnow: (today_snow_ge_1===2 || today_snow_ge_1===3) ? 'yes' : 'no',
-                          userSoilFzn: (today_soil_frozen===1 || today_soil_frozen===3) ? 'yes' : 'no',
+                          //userSnow: (today_snow_ge_1===2 || today_snow_ge_1===3) ? 'yes' : 'no',
+                          //userSoilFzn: (today_soil_frozen===1 || today_soil_frozen===3) ? 'yes' : 'no',
+                          userSnow: (today_snow_depth>=1) ? 'yes' : 'no',
+                          userSoilFzn: (today_soil_temp<=32) ? 'yes' : 'no',
                           dataIsLoading: false
                         })
                       });

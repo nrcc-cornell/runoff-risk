@@ -24,6 +24,7 @@ const getLabel = (v) => {
     'RRAF_dailyRiskPercWinter72Hour': 'Runoff Risk (72-hour)',
     'RRAF_dailyRiskPercWinter': 'Runoff Risk (24-hour)',
     'dailyPrecip_vol_INCHES': 'Precipitation (in)',
+    'dailyRAIM_vol_INCHES': 'Rainfall + Snowmelt (in)',
     'dailyAvgSoilSat_2in': 'Soil Saturation (2" depth, %)',
     'dailyAvgSoilSat_6in': 'Soil Saturation (6" depth, %)',
     'dailyAvgSoilSat_sfc10': 'Soil Saturation (sfc-10", %)',

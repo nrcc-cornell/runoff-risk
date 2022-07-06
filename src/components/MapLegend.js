@@ -18,6 +18,7 @@ const getLabel = (v) => {
     'RRAF_dailyRiskPercWinter72Hour': 'Runoff Risk (72-hour)',
     'RRAF_dailyRiskPercWinterTotal': 'Runoff Risk (10-day)',
     'dailyPrecip_vol_INCHES': 'Precipitation (in)',
+    'dailyRAIM_vol_INCHES': 'Rainfall + Snowmelt (in)',
     'dailyAvgSoilSat_2in': 'Soil Saturation (2" depth, %)',
     'dailyAvgSoilSat_6in': 'Soil Saturation (6" depth, %)',
     'dailyAvgSoilSat_sfc10': 'Soil Saturation (sfc-10", %)',
@@ -46,7 +47,7 @@ class MapLegend extends React.Component {
           <div className={"color-box rr-color-6"}></div><span className="map-legend-label">High</span><br/>
         </div>
       )
-    } else if (this.props.variable==='dailyPrecip_vol_INCHES' || this.props.variable==='dailyAvgSWE_INCHES') {
+    } else if (this.props.variable==='dailyPrecip_vol_INCHES' || this.props.variable==='dailyRAIM_vol_INCHES'  || this.props.variable==='dailyAvgSWE_INCHES') {
       return (
         <div className="map-legend" style={mapLegendStyle}>
           <div className="map-legend-title">{getLabel(this.props.variable)}</div>

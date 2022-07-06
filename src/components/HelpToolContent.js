@@ -36,14 +36,14 @@ const HelpToolFcst72hr = () => {
               <span>
                 Forecasted <b>risk categories</b> issued under <b>non-frozen conditions</b> include:<br/>
                 <ul>
-                <li><b><span style={{color:'#52be80'}}>NO RUNOFF EXPECTED (NRE)</span></b> </li>
+                <li><b><span style={{color:'#52be80'}}>LITTLE/NO RUNOFF EXPECTED (NRE)</span></b> </li>
                 <li><b><span style={{color:'#ffd700'}}>LOW RISK</span></b> </li>
                 <li><b><span style={{color:'#ffaa1c'}}>MODERATE RISK</span></b> </li>
                 <li><b><span style={{color:'#ff0000'}}>HIGH RISK</span></b> </li>
                 </ul>
                 Forecasted <b>risk categories</b> issued under <b>frozen conditions</b> include:<br/>
                 <ul>
-                <li><b><span style={{color:'#5dade2'}}>NO RUNOFF EXPECTED (NRE)</span></b> </li>
+                <li><b><span style={{color:'#5dade2'}}>LITTLE/NO RUNOFF EXPECTED (NRE)</span></b> </li>
                 <li><b><span style={{color:'#8e44ad'}}>HIGH RISK</span></b> </li>
                 </ul>
               </span>
@@ -88,6 +88,7 @@ const HelpToolMap = () => {
                 <li><b>Runoff Risk (72-hour)</b>: The highest runoff risk category expected over the selected 3-day period.</li>
                 <li><b>Runoff Risk (24-hour)</b>: The runoff risk category expected on the selected day.</li>
                 <li><b>Precipitation (in)</b>: Liquid-equivalent of all rain/snow forecasted for selected day.</li>
+                <li><b>Rainfall + Snowmelt (in)</b>: Liquid-equivalent of all rain/snowmelt forecasted for selected day.</li>
                 <li><b>Snow Water Equivalent (in)</b>: Amount of water in snowpack, if the snow were melted and measured.</li>
                 <li><b>Soil Saturation (%)</b>: The percent of soil saturation, at specified depth.</li>
                 <li><b>Soil Temperature (F)</b>: The temperature of the soil, at specified depth.</li>

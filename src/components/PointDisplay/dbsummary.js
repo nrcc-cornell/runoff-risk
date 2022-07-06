@@ -28,8 +28,8 @@ class DashboardSummary extends React.Component {
 
   convertRiskCatToText(c,d) {
     let txtRisk = ''
-    if (c===0) {txtRisk = 'NO RUNOFF EXPECTED'}
-    if (c===1) {txtRisk = 'NO RUNOFF EXPECTED'}
+    if (c===0) {txtRisk = 'LITTLE/NO RUNOFF RISK'}
+    if (c===1) {txtRisk = 'LITTLE/NO RUNOFF RISK'}
     if (c===2) {txtRisk = 'LOW RISK'}
     if (c===3) {txtRisk = 'MODERATE RISK'}
     if (c===4) {txtRisk = 'HIGH RISK'}

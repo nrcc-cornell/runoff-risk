@@ -66,7 +66,7 @@ class PointDisplay extends React.Component {
             <br/>
             <DashboardTitle pointData={this.props.pointData} />
             <ThreatDashboardTable pointData={this.props.pointData} />
-            <div><span className='nre-note'>*NRE: No Runoff Expected &nbsp;</span></div>
+            <div><span className='nre-note'>*NRE: Little/No Runoff Expected &nbsp;</span></div>
             <Grid container item spacing={1} direction="row" justify="center" alignItems="center">
               <Grid item>
                 <Button variant="contained" color="primary" size="small" onClick={this.props.updateDetailView}>
