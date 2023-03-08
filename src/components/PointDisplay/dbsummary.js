@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-//import Hidden from '@material-ui/core/Hidden';
 import red from '@material-ui/core/colors/red';
-//import Button from '@material-ui/core/Button';
 import moment from 'moment';
+
+import convertRiskPercToRiskCat from './convertRiskPercToRiskCat';
 
 const styles = theme => ({
   button: {
@@ -14,18 +14,6 @@ const styles = theme => ({
 });
 
 class DashboardSummary extends React.Component {
-
-  convertRiskPercToRiskCat(p) {
-      let cat=null
-      if (p>100 && p<=112) {cat = 0};
-      if (p>=0 && p<25) {cat = 1};
-      if (p>=25 && p<50) {cat = 2};
-      if (p>=50 && p<75) {cat = 3};
-      if (p>=75 && p<101) {cat = 4};
-      if (p>=112 && p<=125) {cat = 5};
-      return cat
-  }
-
   convertRiskCatToText(c,d) {
     let txtRisk = ''
     if (c===0) {txtRisk = 'LITTLE/NO RUNOFF RISK'}
@@ -43,18 +31,11 @@ class DashboardSummary extends React.Component {
   }
 
   render() {
-    //const { classes } = this.props;
-
     let today_date = moment().format('YYYYMMDD')
     let today_idx = this.props.pointData['dates'].indexOf(today_date)
     let today_p = this.props.pointData['riskWinter72hr'][today_idx]
     let fcast_dates = [this.props.pointData['dates'][today_idx], this.props.pointData['dates'][today_idx+1], this.props.pointData['dates'][today_idx+2]]
-    let cat = this.convertRiskPercToRiskCat(today_p)
-    //let cat = this.convertRiskPercToRiskCat(fcast_p)
-    //let fcast_idx = this.props.pointData['fcstFlag'].indexOf('f')
-    //let fcast_p = this.props.pointData['riskWinter72hr'][fcast_idx]
-    //let fcast_date = this.props.pointData['dates'][fcast_idx+2]
-    //let cat = this.convertRiskPercToRiskCat(fcast_p)
+    let cat = convertRiskPercToRiskCat(today_p)
     let summaryObj = {}
     summaryObj = this.convertRiskCatToText(cat,fcast_dates)
 
