@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import DashboardDates from './dbdates.js';
 import DashboardLegend from './dblegend.js';
 
+import convertRiskPercToRiskCat from './convertRiskPercToRiskCat';
+
 class DailyDataComponent extends React.Component {
 
   render() {
@@ -34,35 +36,9 @@ class DailyDataComponent extends React.Component {
 
 
 class ThreatDashboardTable extends React.Component {
-
-  convertRiskPercToRiskCat(p) {
-      let cat=null
-      if (p>100 && p<=112) {cat = 0};
-      if (p>=0 && p<25) {cat = 1};
-      if (p>=25 && p<50) {cat = 2};
-      if (p>=50 && p<75) {cat = 3};
-      if (p>=75 && p<101) {cat = 4};
-      if (p>=112 && p<=125) {cat = 5};
-      return cat
-  }
-
   createRiskCategories = (perc_array) => {
-    return perc_array.map(x => this.convertRiskPercToRiskCat(x))
+    return perc_array.map(x => convertRiskPercToRiskCat(x))
   }
-
-  //convertRiskPercToRiskCat(perc_array) {
-  //  let riskCat = perc_array
-  //    .filter(x => x>=0 && x<=120)
-  //    .map(x => {
-  //      if (x>100 && x<=110) {return 0};
-  //      if (x>=0 && x<25) {return 1};
-  //      if (x>=25 && x<50) {return 2};
-  //      if (x>=50 && x<75) {return 3};
-  //      if (x>=75 && x<=100) {return 4};
-  //      if (x>=110 && x<=120) {return 5};
-  //    })
-  //  return riskCat;
-  //}
 
   render () {
 
