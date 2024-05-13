@@ -21,7 +21,7 @@ import MapLegend from './MapLegend';
 // eslint-disable-next-line import/no-webpack-loader-syntax
 mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 
-const TOKEN = 'YOUR_TOKEN'
+const TOKEN = 'pk.eyJ1IjoicHJlY2lwYWRtaW4iLCJhIjoiY2txYjNjMHYxMGF4NTJ1cWhibHNub3BrdiJ9.1T_U5frbnHaHonvFpHenxQ'
 
 const navStyle = {
   position: 'absolute',
@@ -75,7 +75,8 @@ class MapDisplay extends Component {
 
   componentDidMount() {
     if (this.props.date && this.props.dateFcstInit && this.props.variable) {
-      let public_url = process.env.PUBLIC_URL
+      let public_url = 'https://runoff-risk.nrcc.cornell.edu/ny'
+      // let public_url = process.env.PUBLIC_URL
       this.setState({
         //add value at end of string to try and eliminate caching
         imgsrc: public_url+'/fcst_map_images/NY_'+this.props.variable+'_'+this.props.date.slice(4,8)+this.props.date.slice(0,4)+'.png?'+this.props.dateFcstInit
@@ -85,7 +86,8 @@ class MapDisplay extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.date!==this.props.date || prevProps.dateFcstInit!==this.props.dateFcstInit || prevProps.variable!==this.props.variable) {
-      let public_url = process.env.PUBLIC_URL
+      let public_url = 'https://runoff-risk.nrcc.cornell.edu/ny'
+      // let public_url = process.env.PUBLIC_URL
       this.setState({
         //add value at end of string to try and eliminate caching
         imgsrc: public_url+'/fcst_map_images/NY_'+this.props.variable+'_'+this.props.date.slice(4,8)+this.props.date.slice(0,4)+'.png?'+this.props.dateFcstInit
