@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import red from '@material-ui/core/colors/red';
-import moment from 'moment';
 
-import convertRiskPercToRiskCat from './convertRiskPercToRiskCat';
 
 const styles = theme => ({
   button: {
@@ -31,13 +29,9 @@ class DashboardSummary extends React.Component {
   }
 
   render() {
-    let today_date = moment().format('YYYYMMDD')
-    let today_idx = this.props.pointData['dates'].indexOf(today_date)
-    let today_p = this.props.pointData['riskWinter72hr'][today_idx]
-    let fcast_dates = [this.props.pointData['dates'][today_idx], this.props.pointData['dates'][today_idx+1], this.props.pointData['dates'][today_idx+2]]
-    let cat = convertRiskPercToRiskCat(today_p)
+    let fcast_dates = [this.props.pointData['dates'][this.props.today_idx], this.props.pointData['dates'][this.props.today_idx+1], this.props.pointData['dates'][this.props.today_idx+2]]
     let summaryObj = {}
-    summaryObj = this.convertRiskCatToText(cat,fcast_dates)
+    summaryObj = this.convertRiskCatToText(this.props.cat,fcast_dates)
 
     return (
       <Grid container direction="column" justify="center" alignItems="center">

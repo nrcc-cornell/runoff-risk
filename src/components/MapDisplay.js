@@ -21,7 +21,7 @@ import MapLegend from './MapLegend';
 // eslint-disable-next-line import/no-webpack-loader-syntax
 mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 
-const TOKEN = 'YOUR_TOKEN'
+const TOKEN = 'pk.eyJ1IjoiYm5iMiIsImEiOiJjazJtYTgwajQwZnFiM29waGo4NHI1MWpnIn0.Xmb6eYeJArqqBQtKkWorUQ'
 
 const navStyle = {
   position: 'absolute',

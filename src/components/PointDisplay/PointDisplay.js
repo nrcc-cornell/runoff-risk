@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
+import convertRiskPercToRiskCat from './convertRiskPercToRiskCat';
 import "../../styles/dashboard.css";
 import ThreatColumnChart from './dbchart.js';
 import ThreatDashboardTable from './dbtable.js';
@@ -36,6 +38,11 @@ class PointDisplay extends React.Component {
   }
 
   render() {
+    let today_date = moment().format('YYYYMMDD')
+    let today_idx = this.props.pointData['dates'].indexOf(today_date)
+    let today_p = this.props.pointData['riskWinter72hr'][today_idx]
+    let cat = convertRiskPercToRiskCat(today_p)
+
     return (
       <div id="turf-dashboard">
         <div id="turf-dashboard-elements">
@@ -47,7 +54,7 @@ class PointDisplay extends React.Component {
             { window.innerWidth > 500 &&
             <Divider variant="middle" />
             }
-            <DashboardSummary pointData={this.props.pointData} />
+            <DashboardSummary pointData={this.props.pointData} cat={cat} today_idx={today_idx} />
             <Grid container item spacing={1} direction="row" justify="center" alignItems="center">
               <Grid item>
                 <Button variant="contained" color="primary" size="small" onClick={this.props.updateAssumptionsView}>
@@ -59,7 +66,7 @@ class PointDisplay extends React.Component {
               </Grid>
             </Grid>
             {this.props.assumptionsView &&
-              <DashboardAssumptions pointData={this.props.pointData} userSnow={this.props.userSnow} userSoilFzn={this.props.userSoilFzn} />
+              <DashboardAssumptions pointData={this.props.pointData} userSnow={this.props.userSnow} userSoilFzn={this.props.userSoilFzn} cat={cat}/>
             }
             <br/>&nbsp;
             <Divider variant="middle" />
