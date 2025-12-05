@@ -361,7 +361,7 @@ class ToolContents extends Component {
 
         return (
             <div>
-                  <Grid container justify="space-evenly" spacing={6}>
+                  <Grid container justify="space-evenly" spacing={6} style={{ marginTop: 0 }}>
 
                       {this.state.lat &&
                       <Grid item xs={12} lg={6}>
